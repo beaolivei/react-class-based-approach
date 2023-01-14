@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ClassCounter from "./components/Counter/ClassCounter";
-import { FunctionalCounter } from "./components/Counter/FunctionalCounter";
-import SearchMoviesClass from "./components/SearchMovies/ClassSearchMovies";
-import FunctionalSearchMovies from "./components/SearchMovies/FunctionalSearchMovies";
+import { ClassCounter }  from "./components/counter/ClassCounter";
+import FunctionalCounter from "./components/counter/FunctionalCounter";
+import { ClassSearch } from "./components/counter/search-api/ClassSearch";
+import FunctionalSearch from "./components/counter/search-api/FunctionalSearch";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div>
-      <FunctionalCounter header="Functional Counter" />
-      <ClassCounter header="Class Counter" />
-      <FunctionalSearchMovies />
-      <SearchMoviesClass />
-    </div>
+    <FunctionalCounter title="Functional Counter"/>
+    <ClassCounter title = "Class Counter"/>
+    <FunctionalSearch title="Functional Search"/>
+    <ClassSearch title = "Class Search"/>
   </React.StrictMode>
 );

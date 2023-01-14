@@ -1,114 +1,78 @@
 // examples of coding without ES6 classes
 
 const police_officer = {
-  name: "Paul",
-  age: 35,
-  height: 170,
-  gender: "male",
-  ocupation: "police officer",
-  years_of_experience: 10,
+    name: "Paul",
+    age: 34,
+    years_of_experience: 5,
+    ocupation: "police officer",
 
-  tellStory() {
-    console.log(
-      `Hello, I am ${this.name}, I am ${this.age} years old. 
-        I work as a ${this.ocupation}. I have ${this.years_of_experience} years of experience`
-    );
-  },
-};
-police_officer.tellStory();
+    tellStory(){
+        console.log(
+            `Hello, I am ${this.name}. I am ${this.age} years old.
+            I have been working as a ${this.ocupation} for ${this.years_of_experience} years`
+        )
+    }
+}
+police_officer.tellStory()
 
-const ballet_dancer = {
-  name: "Josephine",
-  age: 22,
-  height: 170,
-  gender: "female",
-  ocupation: "ballet dancer",
-  years_of_experience: 5,
+const teacher = {
+    name: "Rebeca",
+    age: 28,
+    years_of_experience: 3,
+    ocupation: "teacher",
 
-  tellStory() {
-    console.log(`Hello, I am ${this.name}, I am ${this.age} years old. 
-        I work as a ${this.ocupation}. I have ${this.years_of_experience} years of experience`);
-  },
-};
-ballet_dancer.tellStory();
+    tellStory(){
+        console.log(
+            `Hello, I am ${this.name}. I am ${this.age} years old.
+            I have been working as a ${this.ocupation} for ${this.years_of_experience} years`
+        )
+    }
+}
+teacher.tellStory()
 
 //examples of coding with ES6 Classes
 
 class Person {
-  constructor(name, age, height, gender, ocupation, years_of_experience) {
-    (this.name = name),
-      (this.age = age),
-      (this.height = height),
-      (this.gender = gender),
-      (this.ocupation = ocupation),
-      (this.years_of_experience = years_of_experience);
-  }
-  tellStory() {
-    console.log(`Hello, I am ${this.name}, I am ${this.age} years old. 
-        I work as a ${this.ocupation}. I have ${this.years_of_experience} years of experience`);
-  }
+    constructor(name, age, years_of_experience, ocupation){
+        this.name = name,
+        this.age = age,
+        this.years_of_experience = years_of_experience,
+        this.ocupation = ocupation
+    }
+    tellStory(){
+        console.log(
+            `Hello, I am ${this.name}. I am ${this.age} years old.
+            I have been working as a ${this.ocupation} for ${this.years_of_experience} years`
+        )
+    }
 }
 
-const chef = new Person("Gabriela", 27, 180, "female", "chef", 3);
-const software_engineer = new Person(
-  "Bea",
-  28,
-  170,
-  "female",
-  "software engineer",
-  6
-);
-chef.tellStory();
-software_engineer.tellStory();
+const designer = new Person("Carmen", 38, 7, "designer")
+const qaengineer = new Person("Gabriel", 20, 1, "QA Engineer")
 
-// extending classes
-// Software Engineer
+designer.tellStory()
+qaengineer.tellStory()
 
-class SoftwareEngineer extends Person {
-  constructor(
-    name,
-    age,
-    height,
-    gender,
-    years_of_experience,
-    expertiseArea,
-    programmingLanguage
-  ) {
-    super(name, age, height, gender, "software engineer", years_of_experience);
-    this.expertiseArea = expertiseArea;
-    this.programmingLanguage = programmingLanguage;
-  }
+// Our class Software Engineer that will extend the class Person
 
+class SoftwareEngineer extends Person{
+    constructor(name, age, years_of_experience, favorite_language, expertise ){
+        super(name, age, years_of_experience, "software engineer");
+        this.favorite_language = favorite_language,
+        this.expertise = expertise
+    }
 
-  tellStory() {
-    console.log('state', this.years_of_experience)
-    console.log(
-      `Hello, I am ${this.name} and I am ${this.age} years old.
-            I work as a ${this.ocupation}. I have ${this.years_of_experience} years of experience.
-            My expertise area is ${this.expertiseArea} and my main programming language is ${this.programmingLanguage}. 
+    tellStory(){
+        console.log(
+            `Hello, I am ${this.name}. I am ${this.age} years old.
+            I have been working as a ${this.ocupation} for ${this.years_of_experience} years.
+            My favorite language is ${this.favorite_language} and my area of expertise is ${this.expertise}
             `
-    );
-  }
+        )
+    }
 }
 
-const murilo = new SoftwareEngineer(
-  "Gabriela",
-  27,
-  180,
-  "female",
-  3,
-  "data engineering",
-  "Python"
-);
-
-const erika = new SoftwareEngineer(
-    "Erika",
-    30,
-    178,
-    "female",
-    4,
-    "front-end development",
-    "Javascript"
-)
-murilo.tellStory();
-erika.tellStory();
+const macky = new SoftwareEngineer("Macky", 32, 1, "React", "full stack")
+const bea = new SoftwareEngineer("Bea", 28, 7, "Javascript", "front-end")
+macky.tellStory()
+bea.tellStory()
